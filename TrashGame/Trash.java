@@ -15,7 +15,7 @@ public class Trash extends Mover
      */
     public Trash()
     {
-        level = 1;
+        level = 0;
         GreenfootImage img = getImage();
         img.scale(75, 75);
         
@@ -55,13 +55,45 @@ public class Trash extends Mover
         }
     }
        
-    private void checkNextLevel() {
-        if (getX() == getWorld().getWidth()-1) {
-            if (level == 1) {
+    private void checkNextLevel() 
+    {
+        if (getX() == getWorld().getWidth()-1) 
+        {
+            if (level == 0)
+            {
+                level = 1;
+                getWorld().removeObject(this);
+                Greenfoot.setWorld(new Farm(this));
+            }
+            else if (level == 1) 
+            {
                 level = 2;
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new Dump(this));
             }
+            else if (level == 2)
+            {
+                level = 3;
+                getWorld().removeObject(this);
+                Greenfoot.setWorld(new City(this));
+            }
+            else if (level == 3)
+            {
+                level = 4;
+                getWorld().removeObject(this);
+                Greenfoot.setWorld(new Farm(this, 1125, 640));
+            }
+        }
+        
+        if (getX() == 0)
+        {
+            if (level == 4)
+            {
+                level = 5;
+                getWorld().removeObject(this);
+                Greenfoot.setWorld(new Den(this));
+            }
+            
         }
     }
 }

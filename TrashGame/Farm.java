@@ -13,13 +13,26 @@ public class Farm extends World
      * Constructor for objects of class MyWorld.
      * 
      */
-    public Farm()
+    public Farm(Trash trash)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1); 
         GreenfootImage img = new GreenfootImage("farm.jpg");
         setBackground(img);
         prepare();
+        addObject(trash, 25, 640);
+    }
+    
+    public Farm(Trash trash, int x, int y)
+    {
+        super(1200, 700, 1); 
+        GreenfootImage img = new GreenfootImage("farm.jpg");
+        setBackground(img);
+        
+        addObject(trash, x, y);
+        
+        prepare();
+        
     }
 
     /**
@@ -28,8 +41,7 @@ public class Farm extends World
      */
     private void prepare()
     {
-        Trash trash = new Trash();
-        addObject(trash, 50, 640);
+
       
         Grass grass = new Grass(1200, 50);
         addObject(grass, 600, 700);
