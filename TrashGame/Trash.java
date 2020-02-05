@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Trash extends Mover
+public class Trash extends Animated
 {
     private int level;
     
@@ -16,9 +16,8 @@ public class Trash extends Mover
      */
     public Trash()
     {
+        super("Trash", "Idle", ".png", 3);
         level = 0;
-        GreenfootImage img = getImage();
-        img.scale(75, 75);
         
         setMovementSpeed(5);
         setGravity(2);
@@ -29,7 +28,7 @@ public class Trash extends Mover
     {
         // Add your action code here.
         doGravity();
-        
+        super.act();
         moveHorizontally();
         moveVertically();
         checkNextLevel();

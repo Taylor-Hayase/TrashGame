@@ -18,16 +18,22 @@ public class Mover extends Actor
     private int speed = 0;                          // running speed (sideways)
     private Class[] barrier = new Class[0];
     private int vSpeed = 0;                         // current vertical speed
-
+    public boolean directionL = true;
+    
     /**
      * Try to make the {@code Mover} move right, at a speed specified by {@link #setMovementSpeed(int)}
      * 
      * @see moveLeft()
-     */
+     */   
+         
+    
     public void moveRight()
     {
         if(canMoveRight())
+        {
             setLocation(getX() + speed, getY());
+            directionL = true;
+        }
     }
 
     /**
@@ -38,7 +44,10 @@ public class Mover extends Actor
     public void moveLeft()
     {
         if(canMoveLeft())
+        {
             setLocation (getX() - speed, getY());
+            directionL = false;
+        }
     }
 
     /**
