@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Trash extends Mover
 {
     private int level;
+    
     /**
      * Act - do whatever the Trash wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -36,6 +37,7 @@ public class Trash extends Mover
     
     private void moveHorizontally() 
     {
+
         if (Greenfoot.isKeyDown("right")) 
         {
            moveRight();  
@@ -57,7 +59,7 @@ public class Trash extends Mover
        
     private void checkNextLevel() 
     {
-        if (getX() == getWorld().getWidth()-1) 
+        if ((getX() == getWorld().getWidth()-1) && (getY() > 630)) 
         {
             if (level == 0)
             {
@@ -85,7 +87,7 @@ public class Trash extends Mover
             }
         }
         
-        if (getX() == 0)
+        if ((getX() == 0) && (getY() > 630))
         {
             if (level == 4)
             {

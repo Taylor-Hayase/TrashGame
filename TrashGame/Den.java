@@ -36,9 +36,19 @@ public class Den extends World
     private void prepare() 
     {
         Trash trash = new Trash();
-        addObject(trash, 50, 640);
+        addObject(trash, 500, 640);
         
         Dirt dirt = new Dirt(1200, 50);
         addObject(dirt, 600, 700);
+        
+        Child1 child1 = new Child1();
+        addObject(child1, 100, 650);
+        
+        Child2 child2 = new Child2();
+        addObject(child2, 170, 650);
+        
+        
+        Child3 child3 = new Child3();
+        addObject(child3, 240, 650);
     }
 }

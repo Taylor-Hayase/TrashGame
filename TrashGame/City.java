@@ -28,6 +28,9 @@ public class City extends World
     {
         Cement cement = new Cement(1200, 50);
         addObject(cement, 600, 700);
+        
+        Rat rat = new Rat();
+        addObject(rat, 600, 640);
     }
         
 }

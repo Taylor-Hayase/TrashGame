@@ -145,6 +145,37 @@ public class Farm extends World
         
         Grass grass32 = new Grass();
         addObject(grass32, 1125, 250);
+        
+        //place trash into world
+        Trash1 trash = new Trash1();
+        addObject(trash, 50, 370);
+        
+        Trash2 trash2 = new Trash2();
+        addObject(trash2, 380, 510);
+        
+        Trash3 trash3 = new Trash3();
+        addObject(trash3, 680, 430);
+        
+        Trash2 trash4 = new Trash2();
+        addObject(trash4, 1150, 200);
+        
+        Trash1 trash5 = new Trash1();
+        addObject(trash5, 980, 330);
+        
+        Trash3 trash6 = new Trash3();
+        addObject(trash6, 400, 230);
+        
+        Trash2 trash7 = new Trash2();
+        addObject(trash7, 500, 230);
+        
+        Trash3 trash8 = new Trash3();
+        addObject(trash8, 600, 230);
+        
+        Trash1 trash9 = new Trash1();
+        addObject(trash9, 505, 110);
+        
+        Trash1 trash10 = new Trash1();
+        addObject(trash10, 1150, 650);
 
     }
 }
