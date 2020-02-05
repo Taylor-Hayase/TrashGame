@@ -19,6 +19,13 @@ public class Dirt extends Ground
         setImage(image);
     }
     
+    public Dirt(int width, int height)
+    {
+        GreenfootImage image = getImage();
+        image.scale(width, height);
+        setImage(image);
+    }
+    
     public void act() 
     {
         // Add your action code here.

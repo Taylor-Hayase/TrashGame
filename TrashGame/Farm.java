@@ -28,80 +28,111 @@ public class Farm extends World
      */
     private void prepare()
     {
-        Grass grass = new Grass();
-        addObject(grass,25,720);
+        Trash trash = new Trash();
+        addObject(trash, 50, 640);
+      
+        Grass grass = new Grass(1200, 50);
+        addObject(grass, 600, 700);
         
+        //Platform 1
         Grass grass2 = new Grass();
-        addObject(grass2,75,720);
-
+        addObject(grass2, 300, 560);
+        
         Grass grass3 = new Grass();
-        addObject(grass3,125,720);
+        addObject(grass3, 350, 560);
         
         Grass grass4 = new Grass();
-        addObject(grass4,175,720);
+        addObject(grass4, 400, 560);
         
         Grass grass5 = new Grass();
-        addObject(grass5,225,720);
-    
+        addObject(grass5, 450, 560);
+        
+        //Platform 2
         Grass grass6 = new Grass();
-        addObject(grass6,275,720);
-
+        addObject(grass6, 25, 420);
+        
         Grass grass7 = new Grass();
-        addObject(grass7,325,720);
- 
+        addObject(grass7, 75, 420);
+        
         Grass grass8 = new Grass();
-        addObject(grass8,375,720);
- 
+        addObject(grass8, 125, 420);
+        
         Grass grass9 = new Grass();
-        addObject(grass9,425,720);
-  
+        addObject(grass9, 175, 420);
+        
+        //Platform 3
         Grass grass10 = new Grass();
-        addObject(grass10,475,720);
-
+        addObject(grass10, 300, 280);
+        
         Grass grass11 = new Grass();
-        addObject(grass11,525, 720);
-    
+        addObject(grass11, 350, 280);
+        
         Grass grass12 = new Grass();
-        addObject(grass12,575,720);
-       
+        addObject(grass12, 400, 280);
+        
         Grass grass13 = new Grass();
-        addObject(grass13,625,720);
-
+        addObject(grass13, 450, 280);
+        
         Grass grass14 = new Grass();
-        addObject(grass14,675,720);
-      
+        addObject(grass14, 500, 280);
+        
         Grass grass15 = new Grass();
-        addObject(grass15,725,720);
- 
+        addObject(grass15, 550, 280);
+        
         Grass grass16 = new Grass();
-        addObject(grass16,775,720);
-
+        addObject(grass16, 600, 280);
+        
         Grass grass17 = new Grass();
-        addObject(grass17,825,720);
-       
+        addObject(grass17, 650, 280);
+        
         Grass grass18 = new Grass();
-        addObject(grass18,875,720);
-       
+        addObject(grass18, 700, 280);
+        
+        //Platform 4
         Grass grass19 = new Grass();
-        addObject(grass19,925,720);
-
+        addObject(grass19, 480, 160);
+        
         Grass grass20 = new Grass();
-        addObject(grass20,975,720);
-      
+        addObject(grass20, 530, 160);
+        
+        //Platform5
         Grass grass21 = new Grass();
-        addObject(grass21,1025,720);
-    
+        addObject(grass21, 560, 480);
+        
         Grass grass22 = new Grass();
-        addObject(grass22,1075,720);
-      
+        addObject(grass22, 610, 480);
+        
         Grass grass23 = new Grass();
-        addObject(grass23,1125,720);
-  
+        addObject(grass23, 660, 480);
+        
         Grass grass24 = new Grass();
-        addObject(grass24,1175,720);
-
+        addObject(grass24, 710, 480);
+        
         Grass grass25 = new Grass();
-        addObject(grass25,1225,720);
+        addObject(grass25, 760, 480);
+        
+        Grass grass26 = new Grass();
+        addObject(grass26, 810, 480);
+        
+        //Platform 6
+        Grass grass27 = new Grass();
+        addObject(grass27, 900, 380);
+        
+        Grass grass28 = new Grass();
+        addObject(grass28, 950, 380);
+        
+        Grass grass29 = new Grass();
+        addObject(grass29, 1000, 380);
+        
+        Grass grass30 = new Grass();
+        addObject(grass30, 1050, 380);
+        
+        //Platform 7
+        Grass grass31 = new Grass();
+        addObject(grass31, 1175, 250);
+        
+        Grass grass32 = new Grass();
+        addObject(grass32, 1125, 250);
 
     }
 }

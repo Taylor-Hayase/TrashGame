@@ -19,6 +19,13 @@ public class Grass extends Ground
         setImage(image);
     }
     
+    public Grass(int width, int height)
+    {
+        GreenfootImage image = getImage();
+        image.scale(width, height);
+        setImage(image);
+    }
+    
     public void act() 
     {
         // Add your action code here.
