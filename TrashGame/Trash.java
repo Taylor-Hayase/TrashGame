@@ -16,7 +16,7 @@ public class Trash extends Animated
      */
     public Trash()
     {
-        super("Trash", "Idle", ".png", 3);
+        super("Trash",".png", 6);
         level = 0;
         
         setMovementSpeed(5);
@@ -31,6 +31,7 @@ public class Trash extends Animated
         super.act();
         moveHorizontally();
         moveVertically();
+        eat();
         checkNextLevel();
     }  
     
@@ -39,12 +40,17 @@ public class Trash extends Animated
 
         if (Greenfoot.isKeyDown("right")) 
         {
-           moveRight();  
+           moveRight(); 
+           moved = 0;
         }
         
         if (Greenfoot.isKeyDown("left")) 
         {
             moveLeft();
+            moved = 0;
+        }
+        else {
+            moved++;
         }
     }
     
@@ -55,7 +61,12 @@ public class Trash extends Animated
             jump(25);
         }
     }
-       
+      
+    private void eat()
+    {
+        
+    }
+    
     private void checkNextLevel() 
     {
         if ((getX() == getWorld().getWidth()-1) && (getY() > 630)) 
