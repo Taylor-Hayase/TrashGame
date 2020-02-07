@@ -59,6 +59,7 @@ public class Trash extends Animated
         if (Greenfoot.isKeyDown("up") && onGround()) 
         {
             jump(25);
+            moved = 0;
         }
     }
       

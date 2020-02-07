@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Farm extends World
 {
-
+    private static boolean firstApp = true;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -31,7 +31,11 @@ public class Farm extends World
         
         addObject(trash, x, y);
         
-        prepare();
+        if (firstApp)
+        {
+            prepare();
+            firstApp = false;
+        }
         
     }
 
