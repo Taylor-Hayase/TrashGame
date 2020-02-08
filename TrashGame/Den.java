@@ -29,8 +29,7 @@ public class Den extends World
         setBackground(img);
         
         addObject(trash, 1125, 640);
-        Dirt dirt = new Dirt(1200, 50);
-        addObject(dirt, 600, 700);
+        prepare2();
     }
     
     private void prepare() 
@@ -47,6 +46,20 @@ public class Den extends World
         Child2 child2 = new Child2();
         addObject(child2, 170, 650);
         
+        Child3 child3 = new Child3();
+        addObject(child3, 240, 650);
+    }
+    
+    private void prepare2()
+    {
+        Dirt dirt = new Dirt(1200, 50);
+        addObject(dirt, 600, 700);
+        
+        Child1 child1 = new Child1();
+        addObject(child1, 100, 650);
+        
+        Child2 child2 = new Child2();
+        addObject(child2, 170, 650);
         
         Child3 child3 = new Child3();
         addObject(child3, 240, 650);

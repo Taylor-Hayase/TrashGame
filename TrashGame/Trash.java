@@ -70,7 +70,7 @@ public class Trash extends Animated
     
     private void checkNextLevel() 
     {
-        if ((getX() == getWorld().getWidth()-1) && (getY() > 630)) 
+        if ((getX() == getWorld().getWidth()-1) && (getY() > 620)) 
         {
             if (level == 0)
             {

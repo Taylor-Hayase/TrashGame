@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Farm extends World
 {
-    private static boolean firstApp = true;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -20,6 +19,7 @@ public class Farm extends World
         GreenfootImage img = new GreenfootImage("farm.jpg");
         setBackground(img);
         prepare();
+        prepare2();
         addObject(trash, 25, 640);
     }
     
@@ -29,14 +29,9 @@ public class Farm extends World
         GreenfootImage img = new GreenfootImage("farm.jpg");
         setBackground(img);
         
-        addObject(trash, x, y);
-        
-        if (firstApp)
-        {
-            prepare();
-            firstApp = false;
-        }
-        
+        addObject(trash, x, y);     
+        prepare();
+
     }
 
     /**
@@ -150,6 +145,10 @@ public class Farm extends World
         Grass grass32 = new Grass();
         addObject(grass32, 1125, 250);
         
+    }
+    
+    private void prepare2()
+    {
         //place trash into world
         Trash1 trash = new Trash1();
         addObject(trash, 50, 370);
