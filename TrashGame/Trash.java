@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Trash extends Animated
 {
     private int level;
+    private Speech speech;
     
     /**
      * Act - do whatever the Trash wants to do. This method is called whenever
@@ -32,6 +33,7 @@ public class Trash extends Animated
         moveHorizontally();
         moveVertically();
         eat();
+        speechBubbles();
         checkNextLevel();
     }  
     
@@ -66,6 +68,30 @@ public class Trash extends Animated
     private void eat()
     {
         
+    }
+    
+    private void speechBubbles()
+    {
+        if (level == 0)
+        {
+            if(getX() < 350)
+            {
+                if (speech == null)
+                {
+                    speech = new Speech("I have to go get food to feed my children!");
+                    getWorld().addObject(speech, getX(), 580);
+                }
+            }
+            else
+            {
+                if (speech != null)
+                {
+                    System.out.println("POP");
+                    getWorld().removeObject(speech);
+                }
+            }
+        }
+
     }
     
     private void checkNextLevel() 
