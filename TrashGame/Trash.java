@@ -86,7 +86,6 @@ public class Trash extends Animated
             {
                 if (speech != null)
                 {
-                    System.out.println("POP");
                     getWorld().removeObject(speech);
                 }
             }
