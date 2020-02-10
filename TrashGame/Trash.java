@@ -74,12 +74,12 @@ public class Trash extends Animated
     {
         if (level == 0)
         {
-            if(getX() < 350)
+            if(getX() < 360)
             {
                 if (speech == null)
                 {
                     speech = new Speech("I have to go get food to feed my children!");
-                    getWorld().addObject(speech, getX(), 580);
+                    getWorld().addObject(speech, getX() + 10, 580);
                 }
             }
             else
