@@ -41,9 +41,7 @@ public class Animated extends Mover
         setImage(imagesL[currentImage]);
     } 
     
-    
-    
-       public boolean animateBuffer() 
+    public boolean animateBuffer() 
     {
         if (imageBuffer < 1)
         {

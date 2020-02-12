@@ -167,6 +167,6 @@ public class Dump extends World
         addObject(trash7, 1050, 200);
         
         Trash1 trash8 = new Trash1();
-        addObject(trash8, 1, 350);
+        addObject(trash8, 150, 200);
     }
 }

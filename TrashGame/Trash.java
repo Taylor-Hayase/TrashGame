@@ -14,6 +14,7 @@ public class Trash extends Animated
     private int frameCt = 0;
     private int score = 0;
     private boolean timing = true;
+    private boolean eating = false;
     private Speech speech;
    
     /**
@@ -29,10 +30,10 @@ public class Trash extends Animated
         setGravity(2);
         setBlockingClasses(new Class[]{Ground.class});
         
-        images = new GreenfootImage[3];
+        images = new GreenfootImage[8];
         
         
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 8; i++)
         {
             GreenfootImage eat = new GreenfootImage("Trash_eating"+i+".png");
             eat.scale(75, 75);
@@ -93,19 +94,26 @@ public class Trash extends Animated
         if(a != null)
         {
             getWorld().removeObject(a);
-            
-            currentImage++;
+            eating = true;
             score++;
-            //System.out.println("Eating!\n");
+        }
             
-            if(currentImage > 2)
+        if (eating)
+        {
+            currentImage++;
+            
+            if (currentImage > 7)
             {
                 currentImage = 0;
+                eating = false;
+                return;
             }
+            
             setImage(images[currentImage]);
         }
+                
     }
-    
+
 
     private void checkRats()
     {
