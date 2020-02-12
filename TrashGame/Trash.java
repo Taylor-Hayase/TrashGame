@@ -132,6 +132,7 @@ public class Trash extends Animated
         Actor a = getOneIntersectingObject(BadNPC.class);
         if(a != null)
         {
+            Greenfoot.playSound("rat.wav");
             if(timing)
             {
                 score = score - 1;
@@ -148,11 +149,11 @@ public class Trash extends Animated
                 timing = true;
                 if((Math.random() * (3 - 1 + 1) + 1) ==1)
                 {
-                    getWorld().addObject(trash, x-75, y);
+                    //getWorld().addObject(trash, x-75, y);
                 }
                 else
                 {
-                    getWorld().addObject(trash, x+70, y);
+                    //getWorld().addObject(trash, x+70, y);
                 }
             }
         }
