@@ -20,5 +20,6 @@ public class Child1 extends NPC
     public void act() 
     {
         // Add your action code here.
+        
     }    
 }

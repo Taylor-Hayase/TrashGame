@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Trash1 extends Objects
+public class Trash1 extends Eatable
 {
     /**
      * Act - do whatever the Trash1 wants to do. This method is called whenever

@@ -21,6 +21,7 @@ public class Dump extends World
         setBackground(img);
         
         prepare();
+        prepareTrash();
         addObject(trash, 25, 200);
         
     }
@@ -139,5 +140,33 @@ public class Dump extends World
         Dirt dirt35 = new Dirt();
         addObject(dirt35, 925, 150);
         
+    }
+    
+    private void prepareTrash()
+    {
+        //place trash into world
+        Trash1 trash = new Trash1();
+        addObject(trash, 325, 100);
+        
+        Trash2 trash2 = new Trash2();
+        addObject(trash2, 800, 100);
+
+        Trash2 trash3 = new Trash2();
+        addObject(trash3, 250, 350);
+        
+        Trash3 trash4 = new Trash3();
+        addObject(trash4, 150, 350);
+        
+        Trash1 trash5 = new Trash1();
+        addObject(trash5, 325, 650);
+        
+        Trash3 trash6 = new Trash3();
+        addObject(trash6, 600, 500);
+        
+        Trash3 trash7 = new Trash3();
+        addObject(trash7, 1050, 200);
+        
+        Trash1 trash8 = new Trash1();
+        addObject(trash8, 1, 350);
     }
 }

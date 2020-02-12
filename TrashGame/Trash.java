@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.Random;
 /**
  * Write a description of class Trash here.
  * 
@@ -9,7 +9,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Trash extends Animated
 {
     private int level;
-    
+    private GreenfootImage[] images;
+    private int currentImage = 0;
+    private int frameCt = 0;
+    private int score = 0;
+    private boolean timing = true;
     /**
      * Act - do whatever the Trash wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -22,17 +26,34 @@ public class Trash extends Animated
         setMovementSpeed(5);
         setGravity(2);
         setBlockingClasses(new Class[]{Ground.class});
+        
+        images = new GreenfootImage[3];
+        
+        
+        for (int i = 0; i < 3; i++)
+        {
+            GreenfootImage eat = new GreenfootImage("Trash_eating"+i+".png");
+            eat.scale(75, 75);
+            images[i] = eat;
+            
+        }
+        setImage(images[currentImage]);
+        
     }
     
     public void act() 
     {
         // Add your action code here.
+        getWorld().showText("Score: " +Integer.toString(score), 80, 50);
+        getWorld().showText("Level: " +Integer.toString(level), 80, 75);
         doGravity();
         super.act();
         moveHorizontally();
         moveVertically();
         eat();
+        checkRats();
         checkNextLevel();
+        frameCt++;
     }  
     
     private void moveHorizontally() 
@@ -65,9 +86,53 @@ public class Trash extends Animated
       
     private void eat()
     {
-        
+        Actor a = getOneIntersectingObject(Eatable.class);
+        if(a != null)
+        {
+            getWorld().removeObject(a);
+            
+            currentImage++;
+            score++;
+            //System.out.println("Eating!\n");
+            
+            if(currentImage > 2)
+            {
+                currentImage = 0;
+            }
+            setImage(images[currentImage]);
+        }
     }
     
+    private void checkRats()
+    {
+        Actor a = getOneIntersectingObject(BadNPC.class);
+        if(a != null)
+        {
+            if(timing)
+            {
+                score = score - 1;
+                timing = false;
+            }
+            int x = a.getX();
+            int y = a.getY();
+            Trash3 trash = new Trash3();
+            System.out.println("X: " + x + "\n");
+            
+            System.out.println("Y: " + y + "\n");
+            if(frameCt %70 ==0)
+            {
+                timing = true;
+                if((Math.random() * (3 - 1 + 1) + 1) ==1)
+                {
+                    getWorld().addObject(trash, x-75, y);
+                }
+                else
+                {
+                    getWorld().addObject(trash, x+70, y);
+                }
+            }
+        }
+    }
     private void checkNextLevel() 
     {
         if ((getX() == getWorld().getWidth()-1) && (getY() > 620)) 

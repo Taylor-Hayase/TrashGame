@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Rat extends NPC
+public class Rat extends BadNPC
 {
     /**
      * Act - do whatever the Rat wants to do. This method is called whenever

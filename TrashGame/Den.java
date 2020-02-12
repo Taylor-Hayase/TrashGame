@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Den extends World
 {
-
+    public int score;
     /**
      * Constructor for objects of class Den.
      * 
@@ -17,6 +17,7 @@ public class Den extends World
     {
         super(1200, 700, 1); 
         GreenfootImage img = new GreenfootImage("den.jpg");
+        score = 0;
         setBackground(img);
         prepare();
     }
@@ -27,6 +28,7 @@ public class Den extends World
         super(1200, 700, 1); 
         GreenfootImage img = new GreenfootImage("den.jpg");
         setBackground(img);
+        
         
         addObject(trash, 1125, 640);
         prepare2();

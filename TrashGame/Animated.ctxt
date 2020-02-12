@@ -1,11 +1,13 @@
 #BlueJ class context
 comment0.target=Animated
 comment0.text=\n\ Write\ a\ description\ of\ class\ Animated\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=basename\ suffix\ numImages
-comment1.target=Animated(java.lang.String,\ java.lang.String,\ int)
+comment1.params=
+comment1.target=Animated()
 comment1.text=\n\ Act\ -\ do\ whatever\ the\ Animated\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
-comment2.params=
-comment2.target=boolean\ animateBuffer()
+comment2.params=basename\ suffix\ numImages
+comment2.target=Animated(java.lang.String,\ java.lang.String,\ int)
 comment3.params=
-comment3.target=void\ act()
-numComments=4
+comment3.target=boolean\ animateBuffer()
+comment4.params=
+comment4.target=void\ act()
+numComments=5

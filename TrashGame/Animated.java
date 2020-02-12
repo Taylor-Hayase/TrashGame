@@ -10,6 +10,7 @@ public class Animated extends Mover
 {
     private GreenfootImage[] imagesR;
     private GreenfootImage[] imagesL;
+    private GreenfootImage[] eating;
     private int currentImage = 0;
     private int imageBuffer = 5;
     public int moved = 0;
@@ -17,11 +18,17 @@ public class Animated extends Mover
      * Act - do whatever the Animated wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
+    public Animated()
+    {
+        GreenfootImage img = getImage();
+    }
     public Animated(String basename, String suffix, int numImages)
     {
         //idea for animation, make a separate buffer for each action, ie idle, eating, talking
         imagesR = new GreenfootImage[numImages];
         imagesL = new GreenfootImage[numImages];
+        
         
         for (int i = 0; i < numImages; i++)
         {
@@ -34,7 +41,9 @@ public class Animated extends Mover
         setImage(imagesL[currentImage]);
     } 
     
-        public boolean animateBuffer() 
+    
+    
+       public boolean animateBuffer() 
     {
         if (imageBuffer < 1)
         {
@@ -68,5 +77,7 @@ public class Animated extends Mover
         {
             setImage(imagesR[currentImage]);
         }
+        
+        
     }    
 }
