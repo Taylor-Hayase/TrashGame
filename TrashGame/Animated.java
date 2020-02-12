@@ -60,11 +60,11 @@ public class Animated extends Mover
     {
         // Add your action code here.
         //switch between each buffer as needed
-        if (animateBuffer() && moved > 100)
+        if (animateBuffer() && moved > 150)
         {
             currentImage = (currentImage + 1) % imagesL.length;
         }
-        else if (moved < 80)
+        else if (moved < 150)
         {
             currentImage = 0;
         }

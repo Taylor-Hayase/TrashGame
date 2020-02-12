@@ -50,6 +50,15 @@ public class Den extends World
         
         Child3 child3 = new Child3();
         addObject(child3, 240, 650);
+        
+        Speech speech1 = new Speech("Hungry!");
+        addObject(speech1, 90, 620);
+        
+        Speech speech2 = new Speech("Feed us!");
+        addObject(speech2, 160, 590);
+        
+        Speech speech3 = new Speech("Trash please!");
+        addObject(speech3, 230, 620);
     }
     
     private void prepare2()

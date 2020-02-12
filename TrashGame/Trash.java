@@ -14,6 +14,8 @@ public class Trash extends Animated
     private int frameCt = 0;
     private int score = 0;
     private boolean timing = true;
+    private Speech speech;
+   
     /**
      * Act - do whatever the Trash wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -52,6 +54,7 @@ public class Trash extends Animated
         moveVertically();
         eat();
         checkRats();
+        speechBubbles();
         checkNextLevel();
         frameCt++;
     }  
@@ -103,6 +106,7 @@ public class Trash extends Animated
         }
     }
     
+
     private void checkRats()
     {
         Actor a = getOneIntersectingObject(BadNPC.class);
@@ -133,6 +137,31 @@ public class Trash extends Animated
             }
         }
     }
+
+    private void speechBubbles()
+    {
+        if (level == 0)
+        {
+            if(getX() < 360)
+            {
+                if (speech == null)
+                {
+                    speech = new Speech("I have to go get food to feed my children!");
+                    getWorld().addObject(speech, getX() + 10, 580);
+                }
+            }
+            else
+            {
+                if (speech != null)
+                {
+                    getWorld().removeObject(speech);
+                }
+            }
+        }
+
+    }
+    
+
     private void checkNextLevel() 
     {
         if ((getX() == getWorld().getWidth()-1) && (getY() > 620)) 
