@@ -14,6 +14,7 @@ public class Animated extends Mover
     private int currentImage = 0;
     private int imageBuffer = 5;
     public int moved = 0;
+    public boolean facingLeft;
     /**
      * Act - do whatever the Animated wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -76,6 +77,6 @@ public class Animated extends Mover
             setImage(imagesR[currentImage]);
         }
         
-        
+        facingLeft = super.directionL;
     }    
 }

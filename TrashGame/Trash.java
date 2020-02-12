@@ -10,6 +10,7 @@ public class Trash extends Animated
 {
     private int level;
     private GreenfootImage[] images;
+    private GreenfootImage[] imagesL;
     private int currentImage = 0;
     private int frameCt = 0;
     private int score = 0;
@@ -31,6 +32,7 @@ public class Trash extends Animated
         setBlockingClasses(new Class[]{Ground.class});
         
         images = new GreenfootImage[8];
+        imagesL = new GreenfootImage[8];
         
         
         for (int i = 0; i < 8; i++)
@@ -38,6 +40,8 @@ public class Trash extends Animated
             GreenfootImage eat = new GreenfootImage("Trash_eating"+i+".png");
             eat.scale(75, 75);
             images[i] = eat;
+            imagesL[i] = new GreenfootImage(images[i]);
+            imagesL[i].mirrorHorizontally();
             
         }
         setImage(images[currentImage]);
@@ -109,7 +113,15 @@ public class Trash extends Animated
                 return;
             }
             
-            setImage(images[currentImage]);
+            if (super.facingLeft)
+            {
+                setImage(images[currentImage]);
+            }
+            else
+            {
+                setImage(imagesL[currentImage]);
+            }
+                
         }
                 
     }
