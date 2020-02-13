@@ -61,6 +61,7 @@ public class Trash extends Animated
         checkRats();
         speechBubbles();
         checkNextLevel();
+        finish();
         frameCt++;
     }  
     
@@ -143,20 +144,14 @@ public class Trash extends Animated
                     score = 0;
                 timing = false;
                 if (super.facingLeft)
-            {
-                setLocation(getX() - 20, getY());
+                {
+                    setLocation(getX() - 20, getY());
+                }
+                else
+                {
+                    setLocation(getX() + 20, getY());
+                }
             }
-            else
-            {
-                setLocation(getX() + 20, getY());
-            }
-            }
-            
-                            //move you back
-            
-            
-            
-            
             int x = a.getX();
             int y = a.getY();
             Trash3 trash = new Trash3();
@@ -201,6 +196,16 @@ public class Trash extends Animated
 
     }
     
+    private void finish()
+    {
+        if (level == 5 && getX() < 360 && speech == null)
+        {
+            speech = new Speech("I have brought trash for you my children!");
+            getWorld().addObject(speech, getX() + 10, 580);
+            Credits credits = new Credits();
+            getWorld().addObject(credits, 600, 350);
+        }
+    }
 
     private void checkNextLevel() 
     {
