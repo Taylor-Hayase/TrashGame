@@ -20,6 +20,9 @@ public class Den extends World
         
         setBackground(img);
         prepare();
+        addObject(new Menu(), 600, 150);
+        addObject(new Controls(),600, 485);
+        
     }
     
     public Den(Trash trash)
