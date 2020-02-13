@@ -135,17 +135,14 @@ public class Trash extends Animated
         if(a != null)
         {
             
-           // if(timing)
-         //   {
+            if(timing)
+            {
                 Greenfoot.playSound("rat.wav");
                 score = score - 1;
                 if (score < 0)
                     score = 0;
                 timing = false;
-         //   }
-            
-                            //move you back
-            if (super.facingLeft)
+                if (super.facingLeft)
             {
                 setLocation(getX() - 20, getY());
             }
@@ -153,16 +150,20 @@ public class Trash extends Animated
             {
                 setLocation(getX() + 20, getY());
             }
+            }
+            
+                            //move you back
+            
             
             
             
             int x = a.getX();
             int y = a.getY();
             Trash3 trash = new Trash3();
-            System.out.println("X: " + x + "\n");
+           // System.out.println("X: " + x + "\n");
             
-            System.out.println("Y: " + y + "\n");
-            if(frameCt %20 ==0)
+           // System.out.println("Y: " + y + "\n");
+            if(frameCt %10 ==0)
             {
                 timing = true;
                 if((Math.random() * (3 - 1 + 1) + 1) ==1)
