@@ -1,3 +1,4 @@
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.Random;
 /**
@@ -214,6 +215,7 @@ public class Trash extends Animated
             if (level == 0)
             {
                 level = 1;
+                speech = null;
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new Farm(this));
             }
