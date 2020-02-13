@@ -24,7 +24,7 @@ public class Trash extends Animated
      */
     public Trash()
     {
-        super("Trash",".png", 6);
+        super("TrashIdle",".png", 6);
         level = 0;
         
         setMovementSpeed(5);

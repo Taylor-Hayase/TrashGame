@@ -33,7 +33,7 @@ public class Animated extends Mover
         
         for (int i = 0; i < numImages; i++)
         {
-            GreenfootImage lefti = new GreenfootImage(basename+"Idle"+i+suffix);
+            GreenfootImage lefti = new GreenfootImage(basename+i+suffix);
             lefti.scale(75, 75);
             imagesL[i] = lefti;
             imagesR[i] = new GreenfootImage(imagesL[i]);
