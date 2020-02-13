@@ -25,7 +25,8 @@ public class Trash extends Animated
     public Trash()
     {
         super("Trash",".png", 6);
-        level = 0;
+        level = 1;
+        Greenfoot.setWorld(new Menu());
         
         setMovementSpeed(5);
         setGravity(2);
@@ -89,6 +90,7 @@ public class Trash extends Animated
         {
             jump(25);
             moved = 0;
+            Greenfoot.playSound("jump.wav");
         }
     }
       
@@ -97,6 +99,7 @@ public class Trash extends Animated
         Actor a = getOneIntersectingObject(Eatable.class);
         if(a != null)
         {
+            Greenfoot.playSound("eating.wav");
             getWorld().removeObject(a);
             eating = true;
             score++;
@@ -132,9 +135,10 @@ public class Trash extends Animated
         Actor a = getOneIntersectingObject(BadNPC.class);
         if(a != null)
         {
-            Greenfoot.playSound("rat.wav");
+            
             if(timing)
             {
+                Greenfoot.playSound("rat.wav");
                 score = score - 1;
                 timing = false;
             }
@@ -144,7 +148,7 @@ public class Trash extends Animated
             System.out.println("X: " + x + "\n");
             
             System.out.println("Y: " + y + "\n");
-            if(frameCt %70 ==0)
+            if(frameCt %30 ==0)
             {
                 timing = true;
                 if((Math.random() * (3 - 1 + 1) + 1) ==1)
@@ -191,23 +195,29 @@ public class Trash extends Animated
             {
                 level = 1;
                 getWorld().removeObject(this);
-                Greenfoot.setWorld(new Farm(this));
+                Greenfoot.setWorld(new Menu());
             }
-            else if (level == 1) 
+            if (level == 1)
             {
                 level = 2;
                 getWorld().removeObject(this);
-                Greenfoot.setWorld(new Dump(this));
+                Greenfoot.setWorld(new Farm(this));
             }
-            else if (level == 2)
+            else if (level == 2) 
             {
                 level = 3;
                 getWorld().removeObject(this);
-                Greenfoot.setWorld(new City(this));
+                Greenfoot.setWorld(new Dump(this));
             }
             else if (level == 3)
             {
                 level = 4;
+                getWorld().removeObject(this);
+                Greenfoot.setWorld(new City(this));
+            }
+            else if (level == 4)
+            {
+                level = 5;
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new Farm(this, 1125, 640));
             }

@@ -98,6 +98,11 @@ public class Mover extends Actor
                     return false;
             }
         }
+        Actor a = getOneIntersectingObject(BadNPC.class);
+        if(a != null)
+        {
+            return false;
+        }
         return true;
     }
 
@@ -118,6 +123,11 @@ public class Mover extends Actor
                 if(b.getX() > this.getX() && b.getY() == this.getY())
                     return false;
             }
+        }
+        Actor a = getOneIntersectingObject(BadNPC.class);
+        if(a != null)
+        {
+            return false;
         }
         return true;
     }

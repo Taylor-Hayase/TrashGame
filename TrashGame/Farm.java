@@ -20,6 +20,7 @@ public class Farm extends World
         setBackground(img);
         prepare();
         prepare2();
+        rats();
         addObject(trash, 25, 640);
     }
     
@@ -180,5 +181,11 @@ public class Farm extends World
         Trash1 trash10 = new Trash1();
         addObject(trash10, 1150, 650);
 
+    }
+    
+    private void rats()
+    {
+        Rat one = new Rat();
+        addObject(one, 800, 420);
     }
 }
