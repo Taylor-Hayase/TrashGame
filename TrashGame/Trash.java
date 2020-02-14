@@ -17,7 +17,9 @@ public class Trash extends Animated
     public int score = 0;
     private boolean timing = true;
     private boolean eating = false;
+    private boolean hit = false;
     private Speech speech;
+    private int timer;
    
     /**
      * Act - do whatever the Trash wants to do. This method is called whenever
@@ -146,7 +148,7 @@ public class Trash extends Animated
         Actor a = getOneIntersectingObject(BadNPC.class);
         if(a != null)
         {
-            
+            hit = true;
             if(timing)
             {
                 Greenfoot.playSound("rat.wav");
@@ -162,7 +164,15 @@ public class Trash extends Animated
                 {
                     setLocation(getX() + 20, getY());
                 }
+                
+                if (speech == null)
+                {
+                    speech = new Speech("-1", "red");
+                    getWorld().addObject(speech, getX(), getY() - 10);
+                }
+
             }
+            
             int x = a.getX();
             int y = a.getY();
             Trash3 trash = new Trash3();
@@ -182,6 +192,18 @@ public class Trash extends Animated
                 }
             }
         }
+        
+        if (hit)
+        {
+            timer++; 
+            if (timer > 20)
+            {
+                getWorld().removeObject(speech);
+                speech = null;
+                timer = 0;
+                hit = false;
+            }
+        }
     }
 
     private void speechBubbles()
@@ -192,7 +214,7 @@ public class Trash extends Animated
             {
                 if (speech == null)
                 {
-                    speech = new Speech("My children need trash!");
+                    speech = new Speech("My children need trash!", "black");
                     getWorld().addObject(speech, getX() + 10, 580);
                 }
             }
@@ -211,7 +233,7 @@ public class Trash extends Animated
     {
         if (level == 0 && getX() < 360 && speech == null)
         {
-            speech = new Speech("I have brought trash for you my children!");
+            speech = new Speech("I have brought trash for you my children!", "black");
             getWorld().addObject(speech, getX() + 10, 560);
             Credits credits = new Credits();
             getWorld().addObject(credits, 600, 350);

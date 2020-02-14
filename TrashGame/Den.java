@@ -65,13 +65,13 @@ public class Den extends World
         Child3 child3 = new Child3();
         addObject(child3, 240, 650);
         
-        Speech speech1 = new Speech("Hungry!");
+        Speech speech1 = new Speech("Hungry!", "black");
         addObject(speech1, 90, 620);
         
-        Speech speech2 = new Speech("Feed us!");
+        Speech speech2 = new Speech("Feed us!", "black");
         addObject(speech2, 160, 590);
         
-        Speech speech3 = new Speech("Trash please!");
+        Speech speech3 = new Speech("Trash please!", "black");
         addObject(speech3, 230, 620);
     }
     
@@ -91,24 +91,24 @@ public class Den extends World
         
         if (!feed)
         {
-            Speech speech1 = new Speech("Please we are hungry!");
+            Speech speech1 = new Speech("Please we are hungry!", "black");
             addObject(speech1, 160, 590);
         
-            Speech speech2 = new Speech("Bring us the food!");
+            Speech speech2 = new Speech("Bring us the food!", "black");
             addObject(speech2, 230, 620);
         
-            Speech speech3 = new Speech("Trash!");
+            Speech speech3 = new Speech("Trash!", "black");
             addObject(speech3, 90, 620);
         }
         else
         {
-            Speech speech1 = new Speech("Yay food!");
+            Speech speech1 = new Speech("Yay food!", "black");
             addObject(speech1, 160, 590);
         
-            Speech speech2 = new Speech("Thank you dad!");
+            Speech speech2 = new Speech("Thank you dad!", "black");
             addObject(speech2, 230, 620);
         
-            Speech speech3 = new Speech("Trash for us!");
+            Speech speech3 = new Speech("Trash for us!", "black");
             addObject(speech3, 90, 620);
         }
     }
