@@ -82,7 +82,18 @@ public class Rat extends BadNPC
         {
             setImage(imagesR[currentImage]);
         }
-        
+
     }   
     
+    public Speech ratSpeech()
+    {
+        Speech speech = new Speech("Wa ha ha! Give me trash!", "black");
+        getWorld().addObject(speech, getX(), getY() - 10);
+        return speech;
+    }
+    
+    public void removeSpeech(Speech s)
+    {
+        getWorld().removeObject(s);
+    }
 }

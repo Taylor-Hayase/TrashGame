@@ -201,6 +201,6 @@ public class Farm extends World
     private void rats()
     {
         Rat one = new Rat();
-        addObject(one, 800, 420);
+        addObject(one, 800, 635);
     }
 }

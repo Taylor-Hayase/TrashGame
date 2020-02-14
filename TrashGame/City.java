@@ -20,7 +20,7 @@ public class City extends World
         GreenfootImage img = new GreenfootImage("city.jpg");
         setBackground(img);
         prepare();
-        
+        prepare2();
         addObject(trash, 25, 640);
     }
     
@@ -134,6 +134,57 @@ public class City extends World
         
         Cement cement32 = new Cement();
         addObject(cement32, 1050, 300);
+    }
+    
+    private void prepare2()
+    {
+        Trash1 t1 = new Trash1();
+        addObject(t1, 150, 640);
+        
+        Trash2 t2 = new Trash2();
+        addObject(t2, 60, 520);
+        
+        Trash3 t3 = new Trash3();
+        addObject(t3, 250, 410);
+        
+        Trash1 t4 = new Trash1();
+        addObject(t4, 350, 410);
+        
+        Trash2 t5 = new Trash2();
+        addObject(t5, 450, 410);
+        
+        Trash3 t6 = new Trash3();
+        addObject(t6, 550, 410);
+        
+        Trash1 t7 = new Trash1();
+        addObject(t7, 650, 410);
+        
+        Trash2 t8 = new Trash2();
+        addObject(t8, 750, 410);
+        
+        Trash3 t9 = new Trash3();
+        addObject(t9, 130, 250);
+        
+        Trash1 t10 = new Trash1();
+        addObject(t10, 300, 120);
+        
+        Trash2 t11 = new Trash2();
+        addObject(t11, 540, 120);
+        
+        Trash3 t12 = new Trash3();
+        addObject(t12, 760, 200);
+        
+        Trash1 t13 = new Trash1();
+        addObject(t13, 1000, 250);
+        
+        Trash2 t14 = new Trash2();
+        addObject(t14, 1100, 650);
+        
+        Trash3 t15 = new Trash3();
+        addObject(t15, 1150, 650);
+        
+        Trash1 t16 = new Trash1();
+        addObject(t16, 1050, 650);
     }
         
 }

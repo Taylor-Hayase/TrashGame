@@ -15,5 +15,12 @@ public class BadNPC extends Mover
     public void act() 
     {
         // Add your action code here.
-    }    
+    }  
+    
+    public Speech ratSpeech()
+    {
+        Speech speech = new Speech("Wa ha ha! Give me trash!", "black");
+        getWorld().addObject(speech, getX(), getY() - 10);
+        return speech;
+    }
 }

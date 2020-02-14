@@ -19,5 +19,8 @@ public class Speech extends Objects
             
         if (color.equals("red"))
             setImage(new GreenfootImage(text, 20, Color.RED, Color.WHITE));
+            
+        if (color.equals("blue"))
+            setImage(new GreenfootImage(text, 20, Color.BLUE, Color.WHITE));
     }
 }

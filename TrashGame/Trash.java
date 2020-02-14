@@ -19,6 +19,7 @@ public class Trash extends Animated
     private boolean eating = false;
     private boolean hit = false;
     private Speech speech;
+    private Speech s;
     private int timer;
    
     /**
@@ -146,6 +147,7 @@ public class Trash extends Animated
     private void checkRats()
     {
         Actor a = getOneIntersectingObject(BadNPC.class);
+       
         if(a != null)
         {
             hit = true;
@@ -165,10 +167,12 @@ public class Trash extends Animated
                     setLocation(getX() + 20, getY());
                 }
                 
-                if (speech == null)
+                if (speech == null && s == null)
                 {
                     speech = new Speech("-1", "red");
                     getWorld().addObject(speech, getX(), getY() - 10);
+                    s = new Speech("Wa ha ha! Give me trash!", "blue");
+                    getWorld().addObject(s, a.getX(), a.getY() - 50);
                 }
 
             }
@@ -196,13 +200,23 @@ public class Trash extends Animated
         if (hit)
         {
             timer++; 
-            if (timer > 20)
+            if (timer > 20 && timer < 40)
             {
                 getWorld().removeObject(speech);
+                //getWorld().removeObject(s);
                 speech = null;
+                //timer = 0;
+               // hit = false;
+            }
+            
+            if (timer > 50)
+            {
+                getWorld().removeObject(s);
+                s = null;
                 timer = 0;
                 hit = false;
             }
+            
         }
     }
 
@@ -284,7 +298,7 @@ public class Trash extends Animated
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new Farm(this, 1175, 640));
             }
-            else if (level == 3&& (getY() > 620))
+            else if (level == 3 && (getY() > 620))
             {
                 level = 2;
                 getWorld().removeObject(this);
