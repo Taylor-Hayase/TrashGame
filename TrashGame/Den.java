@@ -13,6 +13,7 @@ public class Den extends World
      * Constructor for objects of class Den.
      * 
      */
+    private boolean feed = true;
     public Den()
     {
         super(1200, 700, 1); 
@@ -32,6 +33,13 @@ public class Den extends World
         GreenfootImage img = new GreenfootImage("den.jpg");
         setBackground(img);
         
+        if (trash.score == 0)
+        {
+            feed = false;
+        }
+        
+        Sign sign = new Sign();
+        addObject(sign, 1100, 645);
         
         addObject(trash, 1125, 640);
         prepare2();
@@ -39,11 +47,14 @@ public class Den extends World
     
     private void prepare() 
     {
-        Trash trash = new Trash();
-        addObject(trash, 500, 640);
-        
         Dirt dirt = new Dirt(1200, 50);
         addObject(dirt, 600, 700);
+        
+        Sign sign = new Sign();
+        addObject(sign, 1100, 645);
+        
+        Trash trash = new Trash();
+        addObject(trash, 500, 640);
         
         Child1 child1 = new Child1();
         addObject(child1, 100, 650);
@@ -77,5 +88,28 @@ public class Den extends World
         
         Child3 child3 = new Child3();
         addObject(child3, 240, 650);
+        
+        if (!feed)
+        {
+            Speech speech1 = new Speech("Please we are hungry!");
+            addObject(speech1, 160, 590);
+        
+            Speech speech2 = new Speech("Bring us the food!");
+            addObject(speech2, 230, 620);
+        
+            Speech speech3 = new Speech("Trash!");
+            addObject(speech3, 90, 620);
+        }
+        else
+        {
+            Speech speech1 = new Speech("Yay food!");
+            addObject(speech1, 160, 590);
+        
+            Speech speech2 = new Speech("Thank you dad!");
+            addObject(speech2, 230, 620);
+        
+            Speech speech3 = new Speech("Trash for us!");
+            addObject(speech3, 90, 620);
+        }
     }
 }

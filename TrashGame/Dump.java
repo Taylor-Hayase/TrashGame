@@ -13,7 +13,7 @@ public class Dump extends World
      * Constructor for objects of class Dump.
      * 
      */
-    public Dump(Trash trash)
+    public Dump(Trash trash, int x, int y)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
@@ -22,7 +22,7 @@ public class Dump extends World
         
         prepare();
         prepareTrash();
-        addObject(trash, 25, 200);
+        addObject(trash, x, y);
         
     }
     
@@ -30,6 +30,12 @@ public class Dump extends World
     {
         Dirt dirt = new Dirt(1200, 50);
         addObject(dirt,600,700);
+        
+        Sign sign = new Sign();
+        addObject(sign, 1100, 645);
+        
+        FlipSign fsign = new FlipSign();
+        addObject(fsign, 100, 200);
        
         //Platform 1
         Dirt dirt2 = new Dirt();

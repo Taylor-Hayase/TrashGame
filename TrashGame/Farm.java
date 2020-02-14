@@ -21,6 +21,13 @@ public class Farm extends World
         prepare();
         prepare2();
         rats();
+        
+        Sign sign = new Sign();
+        addObject(sign, 1100, 645);
+        
+        FlipSign fsign = new FlipSign();
+        addObject(fsign, 100, 645);
+        
         addObject(trash, 25, 640);
     }
     
@@ -30,8 +37,16 @@ public class Farm extends World
         GreenfootImage img = new GreenfootImage("farm.jpg");
         setBackground(img);
         
+        Sign sign = new Sign();
+        addObject(sign, 1100, 645);
+        
+        FlipSign fsign = new FlipSign();
+        addObject(fsign, 100, 645);
+        
         addObject(trash, x, y);     
         prepare();
+        prepare2();
+        rats();
 
     }
 

@@ -29,6 +29,9 @@ public class City extends World
         Cement cement = new Cement(1200, 50);
         addObject(cement, 600, 700);
         
+        FlipSign sign = new FlipSign();
+        addObject(sign, 100, 645);
+        
         Rat rat = new Rat();
         addObject(rat, 600, 640);
         

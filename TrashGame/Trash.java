@@ -14,7 +14,7 @@ public class Trash extends Animated
     private GreenfootImage[] imagesL;
     private int currentImage = 0;
     private int frameCt = 0;
-    private int score = 0;
+    public int score = 0;
     private boolean timing = true;
     private boolean eating = false;
     private Speech speech;
@@ -53,17 +53,27 @@ public class Trash extends Animated
     {
         // Add your action code here.
         getWorld().showText("Score: " +Integer.toString(score), 80, 50);
-        getWorld().showText("Level: " +Integer.toString(level), 80, 75);
+        
+        if (level == 0)
+            getWorld().showText("Location: Den", 80, 75);
+        else if (level == 1)
+            getWorld().showText("Location: Farm", 80, 75);
+        else if (level == 2)
+            getWorld().showText("Location: Dump", 80, 75);
+        else if (level == 3)
+            getWorld().showText("Location: City", 80, 75);
         doGravity();
         super.act();
         moveHorizontally();
         moveVertically();
         eat();
         checkRats();
-        speechBubbles();
+        
         checkNextLevel();
-        finish();
+        if (score != 0 && level == 0)
+            finish();
         frameCt++;
+        speechBubbles();
     }  
     
     private void moveHorizontally() 
@@ -89,7 +99,7 @@ public class Trash extends Animated
     {
         if (Greenfoot.isKeyDown("up") && onGround()) 
         {
-            jump(25);
+            jump(26);
             moved = 0;
             Greenfoot.playSound("jump.wav");
         }
@@ -199,10 +209,10 @@ public class Trash extends Animated
     
     private void finish()
     {
-        if (level == 5 && getX() < 360 && speech == null)
+        if (level == 0 && getX() < 360 && speech == null)
         {
             speech = new Speech("I have brought trash for you my children!");
-            getWorld().addObject(speech, getX() + 10, 580);
+            getWorld().addObject(speech, getX() + 10, 560);
             Credits credits = new Credits();
             getWorld().addObject(credits, 600, 350);
         }
@@ -210,40 +220,57 @@ public class Trash extends Animated
 
     private void checkNextLevel() 
     {
-        if ((getX() == getWorld().getWidth()-1) && (getY() > 620)) 
+        if ((getX() == getWorld().getWidth()-1)) 
         {
-            if (level == 0)
+            if (level == 0 && (getY() > 620))
             {
                 level = 1;
                 speech = null;
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new Farm(this));
             }
-            else if (level == 1) 
+            else if (level == 1 && (getY() > 620)) 
             {
                 level = 2;
                 getWorld().removeObject(this);
-                Greenfoot.setWorld(new Dump(this));
+                Greenfoot.setWorld(new Dump(this, 20, 200));
             }
-            else if (level == 2)
+            else if (level == 2 && (getY() > 620))
             {
                 level = 3;
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new City(this));
             }
-            else if (level == 3)
+           /* else if (level == 3)
             {
                 level = 4;
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new Farm(this, 1125, 640));
-            }
+            }*/
         }
-        
-        if ((getX() == 0) && (getY() > 630))
+        else if ((getX() == 0))
         {
-            if (level == 4)
+            if (level == 1&& (getY() > 620)) 
             {
-                level = 5;
+                level = 0;
+                getWorld().removeObject(this);
+                Greenfoot.setWorld(new Den(this));
+            }
+            else if (level == 2 && (getY() < 220))
+            {
+                level = 1;
+                getWorld().removeObject(this);
+                Greenfoot.setWorld(new Farm(this, 1175, 640));
+            }
+            else if (level == 3&& (getY() > 620))
+            {
+                level = 2;
+                getWorld().removeObject(this);
+                Greenfoot.setWorld(new Dump(this, 1175, 640));
+            }
+            else if (level == 4 && (getY() > 620))
+            {
+                level = 3;
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new Den(this));
             }
