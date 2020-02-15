@@ -19,8 +19,13 @@ public class Farm extends World
         GreenfootImage img = new GreenfootImage("farm.png");
         setBackground(img);
         prepare();
-        prepare2();
-        rats();
+        
+        if (!trash.visitFarm)
+        {
+            Warning w = new Warning();
+            addObject(w, 1100, 50);
+            prepare2();
+        }
         
         Sign sign = new Sign();
         addObject(sign, 1100, 645);
@@ -45,8 +50,9 @@ public class Farm extends World
         
         addObject(trash, x, y);     
         prepare();
-        prepare2();
-        rats();
+        
+        if (!trash.visitFarm)
+            prepare2();
 
     }
 
@@ -198,9 +204,4 @@ public class Farm extends World
 
     }
     
-    private void rats()
-    {
-        Rat one = new Rat();
-        addObject(one, 800, 635);
-    }
 }

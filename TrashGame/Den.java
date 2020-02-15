@@ -21,8 +21,8 @@ public class Den extends World
         
         setBackground(img);
         prepare();
-        addObject(new Menu(), 600, 150);
-        addObject(new Controls(),600, 485);
+        //addObject(new Menu(), 600, 150);
+        addObject(new Controls(),600, 400);
         
     }
     
@@ -33,7 +33,7 @@ public class Den extends World
         GreenfootImage img = new GreenfootImage("den.jpg");
         setBackground(img);
         
-        if (trash.score == 0)
+        if (trash.score < 15)
         {
             feed = false;
         }
@@ -94,7 +94,7 @@ public class Den extends World
             Speech speech1 = new Speech("Please we are hungry!", "black");
             addObject(speech1, 160, 590);
         
-            Speech speech2 = new Speech("Bring us the food!", "black");
+            Speech speech2 = new Speech("We need more trash!", "black");
             addObject(speech2, 230, 620);
         
             Speech speech3 = new Speech("Trash!", "black");

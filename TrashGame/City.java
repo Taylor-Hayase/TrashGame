@@ -20,7 +20,13 @@ public class City extends World
         GreenfootImage img = new GreenfootImage("city.jpg");
         setBackground(img);
         prepare();
-        prepare2();
+        if (!trash.visitCity)
+        {
+            prepare2();
+            Trap t = new Trap();
+            addObject(t, 1100, 500);
+        }
+            
         addObject(trash, 25, 640);
     }
     
@@ -33,7 +39,13 @@ public class City extends World
         addObject(sign, 100, 645);
         
         Rat rat = new Rat();
-        addObject(rat, 600, 640);
+        addObject(rat, 350, 640);
+        
+        Rat rat2 = new Rat();
+        addObject(rat2, 550, 640);
+        
+        Rat rat3 = new Rat();
+        addObject(rat3, 750, 640);
         
         //Platform 1
         Cement cement2 = new Cement();

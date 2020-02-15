@@ -21,6 +21,10 @@ public class Trash extends Animated
     private Speech speech;
     private Speech s;
     private int timer;
+    
+    public boolean visitFarm = false;
+    public boolean visitCity = false;
+    public boolean visitDump = false;
    
     /**
      * Act - do whatever the Trash wants to do. This method is called whenever
@@ -249,9 +253,13 @@ public class Trash extends Animated
         {
             speech = new Speech("I have brought trash for you my children!", "black");
             getWorld().addObject(speech, getX() + 10, 560);
-            Credits credits = new Credits();
-            getWorld().addObject(credits, 600, 350);
+            
         }
+        if (speech != null)
+            timer++;
+            
+        if (speech != null && timer > 80)
+            Greenfoot.setWorld(new Credits());
     }
 
     private void checkNextLevel() 
@@ -264,18 +272,21 @@ public class Trash extends Animated
                 speech = null;
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new Farm(this));
+                visitFarm = true;
             }
             else if (level == 1 && (getY() > 620)) 
             {
                 level = 2;
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new Dump(this, 20, 200));
+                visitDump = true;
             }
             else if (level == 2 && (getY() > 620))
             {
                 level = 3;
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new City(this));
+                visitCity = true;
             }
            /* else if (level == 3)
             {
@@ -297,12 +308,14 @@ public class Trash extends Animated
                 level = 1;
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new Farm(this, 1175, 640));
+                visitFarm = true;
             }
             else if (level == 3 && (getY() > 620))
             {
                 level = 2;
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new Dump(this, 1175, 640));
+                visitDump = true;
             }
             else if (level == 4 && (getY() > 620))
             {

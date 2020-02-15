@@ -21,7 +21,8 @@ public class Dump extends World
         setBackground(img);
         
         prepare();
-        prepareTrash();
+        if (!trash.visitDump)
+            prepareTrash();
         addObject(trash, x, y);
         
     }
@@ -36,6 +37,9 @@ public class Dump extends World
         
         FlipSign fsign = new FlipSign();
         addObject(fsign, 100, 200);
+        
+        Rat rat = new Rat();
+        addObject(rat, 600, 640);
        
         //Platform 1
         Dirt dirt2 = new Dirt();

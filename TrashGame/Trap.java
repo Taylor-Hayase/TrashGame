@@ -1,20 +1,24 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Credits here.
+ * Write a description of class Trap here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Credits extends World
+public class Trap extends Objects
 {
+    public Trap()
+    {
+        GreenfootImage img = getImage();
+        img.scale(150, 150);
+    }
     /**
-     * Act - do whatever the Credits wants to do. This method is called whenever
+     * Act - do whatever the Trap wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Credits() 
+    public void act() 
     {
-        super(600, 400, 1); 
         // Add your action code here.
     }    
 }

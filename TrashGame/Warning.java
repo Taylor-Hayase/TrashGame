@@ -1,20 +1,25 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Credits here.
+ * Write a description of class Warning here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Credits extends World
+public class Warning extends Objects
 {
     /**
-     * Act - do whatever the Credits wants to do. This method is called whenever
+     * Act - do whatever the Warning wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Credits() 
+    public Warning()
     {
-        super(600, 400, 1); 
+        GreenfootImage img = getImage();
+        img.scale(200, 100);
+    }
+    
+    public void act() 
+    {
         // Add your action code here.
     }    
 }
