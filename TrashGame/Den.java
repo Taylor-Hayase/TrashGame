@@ -102,6 +102,7 @@ public class Den extends World
         }
         else
         {
+            //only appears when bring back enough trash
             Speech speech1 = new Speech("Yay food!", "black");
             addObject(speech1, 160, 590);
         

@@ -26,7 +26,7 @@ public class Trash extends Animated
     public boolean visitCity = false;
     public boolean visitDump = false;
     
-    public boolean lose = true;;
+    public boolean lose = true;
    
     /**
      * Act - do whatever the Trash wants to do. This method is called whenever
@@ -82,6 +82,8 @@ public class Trash extends Animated
             lose = false;
         
         checkNextLevel();
+        
+        //lose condition = not enough trash and all areas visited
         if (!lose && level == 0 && visitFarm && visitCity && visitDump)
             finish();
         else if (lose && level == 0 && visitFarm && visitCity && visitDump)
@@ -236,7 +238,7 @@ public class Trash extends Animated
     {
         if (level == 0)
         {
-            if(getX() < 360)
+            if(getX() < 370)
             {
                 if (speech == null)
                 {
@@ -257,7 +259,7 @@ public class Trash extends Animated
     
     private void finish()
     {
-        if (level == 0 && getX() < 360 && speech == null)
+        if (level == 0 && getX() < 370 && speech == null)
         {
             speech = new Speech("I have brought trash for you my children!", "black");
             getWorld().addObject(speech, getX() + 10, 560);
@@ -272,7 +274,7 @@ public class Trash extends Animated
     
     private void loseEnd()
     {
-        if (level == 0 && getX() < 360 && speech == null)
+        if (level == 0 && getX() < 370 && speech == null)
         {
             speech = new Speech("I'm sorry my children, I couldn't find enough food for you", "black");
             getWorld().addObject(speech, getX() + 10, 560);
