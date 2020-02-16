@@ -25,6 +25,8 @@ public class Trash extends Animated
     public boolean visitFarm = false;
     public boolean visitCity = false;
     public boolean visitDump = false;
+    
+    public boolean lose = true;;
    
     /**
      * Act - do whatever the Trash wants to do. This method is called whenever
@@ -76,9 +78,15 @@ public class Trash extends Animated
         eat();
         checkRats();
         
+        if (score >= 15)
+            lose = false;
+        
         checkNextLevel();
-        if (score != 0 && level == 0)
+        if (!lose && level == 0 && visitFarm && visitCity && visitDump)
             finish();
+        else if (lose && level == 0 && visitFarm && visitCity && visitDump)
+            loseEnd();
+            
         frameCt++;
         speechBubbles();
     }  
@@ -258,8 +266,23 @@ public class Trash extends Animated
         if (speech != null)
             timer++;
             
-        if (speech != null && timer > 80)
+        if (speech != null && timer > 100)
             Greenfoot.setWorld(new Credits());
+    }
+    
+    private void loseEnd()
+    {
+        if (level == 0 && getX() < 360 && speech == null)
+        {
+            speech = new Speech("I'm sorry my children, I couldn't find enough food for you", "black");
+            getWorld().addObject(speech, getX() + 10, 560);
+            
+        }
+        if (speech != null)
+            timer++;
+            
+        if (speech != null && timer > 100)
+            Greenfoot.setWorld(new Credits());   
     }
 
     private void checkNextLevel() 
