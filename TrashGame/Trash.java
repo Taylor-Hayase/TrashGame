@@ -13,6 +13,7 @@ public class Trash extends Animated
     private GreenfootImage[] images;
     private GreenfootImage[] imagesL;
     private int currentImage = 0;
+    private int current = 0;
     private int frameCt = 0;
     public int score = 0;
     private boolean timing = true;
@@ -27,7 +28,7 @@ public class Trash extends Animated
     public boolean visitDump = false;
     
     public boolean lose = true;
-    
+    private GreenfootImage[] talking;
     public boolean pause = false;
    
     /**
@@ -45,7 +46,16 @@ public class Trash extends Animated
         
         images = new GreenfootImage[8];
         imagesL = new GreenfootImage[8];
+        talking = new GreenfootImage[3];
         
+        for (int i = 0; i < 3; i++)
+        {
+            GreenfootImage t = new GreenfootImage("Trash_talking"+i+".png");
+            t.scale(65, 65);
+            talking[i] = t;
+            
+            
+        }
         
         for (int i = 0; i < 8; i++)
         {
@@ -66,7 +76,7 @@ public class Trash extends Animated
         if (!pause)
         {
             getWorld().showText("Score: " +Integer.toString(score), 80, 50);
-        
+            
             if (level == 0)
                 getWorld().showText("Location: Den", 80, 75);
             else if (level == 1)
@@ -95,6 +105,19 @@ public class Trash extends Animated
 
             frameCt++;
             speechBubbles();
+        }
+        if(pause)
+        {
+            if(animateBuffer())
+            {
+                setImage(talking[current]);
+                System.out.println("talking");
+                current++;
+                if(current >2)
+                {
+                    current = 0;
+                }
+            }
         }
     }  
     
