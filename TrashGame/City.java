@@ -13,6 +13,10 @@ public class City extends World
      * Constructor for objects of class City.
      * 
      */
+    private Trash tra;
+    private int timer = 0;
+    private Speech s;
+    
     public City(Trash trash)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -20,14 +24,36 @@ public class City extends World
         GreenfootImage img = new GreenfootImage("city.jpg");
         setBackground(img);
         prepare();
+        s = new Speech("This is the last place I am visiting today.", "black");
         if (!trash.visitCity)
         {
             prepare2();
             Trap t = new Trap();
             addObject(t, 1100, 500);
+            addObject(s, 250, 610);
         }
+        tra = trash;
             
-        addObject(trash, 25, 640);
+        addObject(trash, 75, 640);
+    }
+    
+    public void act()
+    {
+        if (s != null)
+            timer++;
+            
+        if (timer > 200)
+        {
+            removeObject(s);
+            if (tra != null)
+                tra.pause = false;
+        }
+        else if (timer > 100)
+        {
+            removeObject(s);
+            s = new Speech("My children need me!", "black");
+            addObject(s, 155, 610);
+        } 
     }
     
     private void prepare() 
@@ -150,38 +176,18 @@ public class City extends World
     
     private void prepare2()
     {
-        Trash1 t1 = new Trash1();
-        addObject(t1, 150, 640);
-        
-        Trash2 t2 = new Trash2();
-        addObject(t2, 60, 520);
         
         Trash3 t3 = new Trash3();
         addObject(t3, 250, 410);
-        
-        Trash1 t4 = new Trash1();
-        addObject(t4, 350, 410);
-        
+       
         Trash2 t5 = new Trash2();
         addObject(t5, 450, 410);
         
-        Trash3 t6 = new Trash3();
-        addObject(t6, 550, 410);
-        
         Trash1 t7 = new Trash1();
         addObject(t7, 650, 410);
-        
-        Trash2 t8 = new Trash2();
-        addObject(t8, 750, 410);
-        
-        Trash3 t9 = new Trash3();
-        addObject(t9, 130, 250);
-        
+
         Trash1 t10 = new Trash1();
         addObject(t10, 300, 120);
-        
-        Trash2 t11 = new Trash2();
-        addObject(t11, 540, 120);
         
         Trash3 t12 = new Trash3();
         addObject(t12, 760, 200);

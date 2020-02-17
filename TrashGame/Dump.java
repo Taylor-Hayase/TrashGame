@@ -13,6 +13,10 @@ public class Dump extends World
      * Constructor for objects of class Dump.
      * 
      */
+    private Speech s;
+    private int timer = 0;
+    private Trash t;
+    
     public Dump(Trash trash, int x, int y)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -20,11 +24,36 @@ public class Dump extends World
         GreenfootImage img = new GreenfootImage("dump.png");
         setBackground(img);
         
+        t = trash;
+        
         prepare();
         if (!trash.visitDump)
+        {
+            s = new Speech("Grr those darn rats always are stealing my trash...", "black");
+            addObject(s, 255, 170);
             prepareTrash();
+        }
         addObject(trash, x, y);
         
+    }
+    
+    public void act()
+    {
+        if (s != null)
+            timer++;
+            
+        if (timer > 200)
+        {
+            removeObject(s);
+            if (t != null)
+                t.pause = false;
+        }
+        else if (timer > 100)
+        {
+            removeObject(s);
+            s = new Speech("Best to avoid them", "black");
+            addObject(s, 155, 170);
+        } 
     }
     
     private void prepare()
@@ -162,21 +191,12 @@ public class Dump extends World
         addObject(trash2, 800, 100);
 
         Trash2 trash3 = new Trash2();
-        addObject(trash3, 250, 350);
+        addObject(trash3, 1000, 350);
         
         Trash3 trash4 = new Trash3();
         addObject(trash4, 150, 350);
         
-        Trash1 trash5 = new Trash1();
-        addObject(trash5, 325, 650);
-        
-        Trash3 trash6 = new Trash3();
-        addObject(trash6, 600, 500);
-        
-        Trash3 trash7 = new Trash3();
-        addObject(trash7, 1050, 200);
-        
-        Trash1 trash8 = new Trash1();
-        addObject(trash8, 150, 200);
+        Trash3 trash5 = new Trash3();
+        addObject(trash5, 1050, 200);
     }
 }

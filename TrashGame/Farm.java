@@ -12,6 +12,10 @@ public class Farm extends World
      * Constructor for objects of class MyWorld.
      * 
      */
+    private Speech s;
+    private int timer = 0;
+    public Trash t;
+    
     public Farm(Trash trash)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -20,20 +24,26 @@ public class Farm extends World
         setBackground(img);
         prepare();
         
-        if (!trash.visitFarm)
-        {
-            Warning w = new Warning();
-            addObject(w, 1100, 50);
-            prepare2();
-        }
-        
+        t = trash;
+        s = new Speech("I should gather all this trash before the garbage truck comes!", "black");
+
         Sign sign = new Sign();
         addObject(sign, 1100, 645);
         
         FlipSign fsign = new FlipSign();
         addObject(fsign, 100, 645);
         
-        addObject(trash, 25, 640);
+        if (!trash.visitFarm)
+        {
+           /* Warning w = new Warning();
+            addObject(w, 1100, 50);*/
+            
+            //s = new Speech("I should gather all this trash before the garbage truck comes!", "black");
+            addObject(s, 300, 610);
+            prepare2();
+        }
+        
+        addObject(trash, 75, 640);
     }
     
     public Farm(Trash trash, int x, int y)
@@ -54,6 +64,17 @@ public class Farm extends World
         if (!trash.visitFarm)
             prepare2();
 
+    }
+    
+    public void act()
+    {
+        timer++;
+        if (timer > 140)
+        {
+            removeObject(s);
+            if (t != null)
+                t.pause = false;
+        }
     }
 
     /**
@@ -179,28 +200,13 @@ public class Farm extends World
         addObject(trash2, 380, 510);
         
         Trash3 trash3 = new Trash3();
-        addObject(trash3, 680, 430);
+        addObject(trash3, 495, 113);
         
         Trash2 trash4 = new Trash2();
         addObject(trash4, 1150, 200);
         
         Trash1 trash5 = new Trash1();
         addObject(trash5, 980, 330);
-        
-        Trash3 trash6 = new Trash3();
-        addObject(trash6, 400, 230);
-        
-        Trash2 trash7 = new Trash2();
-        addObject(trash7, 500, 230);
-        
-        Trash3 trash8 = new Trash3();
-        addObject(trash8, 600, 230);
-        
-        Trash1 trash9 = new Trash1();
-        addObject(trash9, 505, 110);
-        
-        Trash1 trash10 = new Trash1();
-        addObject(trash10, 1150, 650);
 
     }
     

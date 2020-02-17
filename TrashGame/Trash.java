@@ -27,6 +27,8 @@ public class Trash extends Animated
     public boolean visitDump = false;
     
     public boolean lose = true;
+    
+    public boolean pause = false;
    
     /**
      * Act - do whatever the Trash wants to do. This method is called whenever
@@ -61,36 +63,39 @@ public class Trash extends Animated
     public void act() 
     {
         // Add your action code here.
-        getWorld().showText("Score: " +Integer.toString(score), 80, 50);
+        if (!pause)
+        {
+            getWorld().showText("Score: " +Integer.toString(score), 80, 50);
         
-        if (level == 0)
-            getWorld().showText("Location: Den", 80, 75);
-        else if (level == 1)
-            getWorld().showText("Location: Farm", 80, 75);
-        else if (level == 2)
-            getWorld().showText("Location: Dump", 80, 75);
-        else if (level == 3)
-            getWorld().showText("Location: City", 80, 75);
-        doGravity();
-        super.act();
-        moveHorizontally();
-        moveVertically();
-        eat();
-        checkRats();
+            if (level == 0)
+                getWorld().showText("Location: Den", 80, 75);
+            else if (level == 1)
+                getWorld().showText("Location: Farm", 80, 75);
+            else if (level == 2)
+                getWorld().showText("Location: Dump", 80, 75);
+            else if (level == 3)
+                getWorld().showText("Location: City", 80, 75);
+            doGravity();
+            super.act();
+            moveHorizontally();
+            moveVertically();
+            eat();
+            checkRats();
         
-        if (score >= 15)
-            lose = false;
+            if (score >= 15)
+                lose = false;
         
-        checkNextLevel();
+            checkNextLevel();
         
         //lose condition = not enough trash and all areas visited
-        if (!lose && level == 0 && visitFarm && visitCity && visitDump)
-            finish();
-        else if (lose && level == 0 && visitFarm && visitCity && visitDump)
-            loseEnd();
-            
-        frameCt++;
-        speechBubbles();
+            if (!lose && level == 0 && visitFarm && visitCity && visitDump)
+                finish();
+            else if (lose && level == 0 && visitFarm && visitCity && visitDump)
+                loseEnd();
+
+            frameCt++;
+            speechBubbles();
+        }
     }  
     
     private void moveHorizontally() 
@@ -298,13 +303,15 @@ public class Trash extends Animated
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new Farm(this));
                 visitFarm = true;
+                pause = true;
             }
             else if (level == 1 && (getY() > 620)) 
             {
                 level = 2;
                 getWorld().removeObject(this);
-                Greenfoot.setWorld(new Dump(this, 20, 200));
+                Greenfoot.setWorld(new Dump(this, 75, 200));
                 visitDump = true;
+                pause = true;
             }
             else if (level == 2 && (getY() > 620))
             {
@@ -312,13 +319,8 @@ public class Trash extends Animated
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new City(this));
                 visitCity = true;
+                pause = true;
             }
-           /* else if (level == 3)
-            {
-                level = 4;
-                getWorld().removeObject(this);
-                Greenfoot.setWorld(new Farm(this, 1125, 640));
-            }*/
         }
         else if ((getX() == 0))
         {
