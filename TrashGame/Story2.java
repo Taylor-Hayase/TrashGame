@@ -17,18 +17,15 @@ public class Story2 extends World
     public Story2()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 210, 1); 
+        super(600, 400, 1); 
     }
     
     public void act()
     {
         timer++;
-       if( timer > 50 && (Greenfoot.isKeyDown("down") ||
-            Greenfoot.isKeyDown("up") ||
-            Greenfoot.isKeyDown("left") ||
-            Greenfoot.isKeyDown("right")))
+       if( timer > 70)
             {
-                Greenfoot.setWorld(new Den());
+                Greenfoot.setWorld(new Story3());
             }
     }
 }
