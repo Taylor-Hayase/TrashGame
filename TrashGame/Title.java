@@ -18,7 +18,11 @@ public class Title extends World
     public Title()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+
         super(700, 350, 1); 
+     //   super(600, 260, 1); 
+        GreenfootSound backgroundMusic = new GreenfootSound("bangers.wav");
+        backgroundMusic.playLoop();
     }
     
     public void act()

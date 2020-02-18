@@ -92,6 +92,8 @@ public class Trash extends Animated
         
             if (score >= 15)
                 lose = false;
+            else
+                lose = true;
         
             checkNextLevel();
         
