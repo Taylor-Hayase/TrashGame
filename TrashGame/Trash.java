@@ -111,7 +111,7 @@ public class Trash extends Animated
             if(animateBuffer())
             {
                 setImage(talking[current]);
-                System.out.println("talking");
+                //System.out.println("talking");
                 current++;
                 if(current >2)
                 {
@@ -325,24 +325,28 @@ public class Trash extends Animated
                 speech = null;
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new Farm(this));
+                if (!visitFarm)
+                    pause = true;
+                    
                 visitFarm = true;
-                pause = true;
             }
             else if (level == 1 && (getY() > 620)) 
             {
                 level = 2;
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new Dump(this, 75, 200));
+                if (!visitDump)
+                    pause = true;
                 visitDump = true;
-                pause = true;
             }
             else if (level == 2 && (getY() > 620))
             {
                 level = 3;
                 getWorld().removeObject(this);
                 Greenfoot.setWorld(new City(this));
+                if (!visitCity)
+                    pause = true;
                 visitCity = true;
-                pause = true;
             }
         }
         else if ((getX() == 0))

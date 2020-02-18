@@ -48,7 +48,7 @@ public class City extends World
             if (tra != null)
                 tra.pause = false;
         }
-        else if (timer > 100)
+        else if (timer > 100 && tra.pause)
         {
             removeObject(s);
             s = new Speech("My children need me!", "black");

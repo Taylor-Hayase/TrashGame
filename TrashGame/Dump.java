@@ -30,7 +30,7 @@ public class Dump extends World
         if (!trash.visitDump)
         {
             s = new Speech("Grr those darn rats always are stealing my trash...", "black");
-            addObject(s, 255, 170);
+            addObject(s, 270, 170);
             prepareTrash();
         }
         addObject(trash, x, y);
@@ -48,7 +48,7 @@ public class Dump extends World
             if (t != null)
                 t.pause = false;
         }
-        else if (timer > 100)
+        else if (timer > 100 && t.pause)
         {
             removeObject(s);
             s = new Speech("Best to avoid them", "black");

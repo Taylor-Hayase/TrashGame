@@ -25,7 +25,7 @@ public class Farm extends World
         prepare();
         
         t = trash;
-        s = new Speech("I should gather all this trash before the garbage truck comes!", "black");
+        s = new Speech("I should gather all this trash before I leave...", "black");
 
         Sign sign = new Sign();
         addObject(sign, 1100, 645);
@@ -35,11 +35,7 @@ public class Farm extends World
         
         if (!trash.visitFarm)
         {
-           /* Warning w = new Warning();
-            addObject(w, 1100, 50);*/
-            
-            //s = new Speech("I should gather all this trash before the garbage truck comes!", "black");
-            addObject(s, 300, 610);
+            addObject(s, 300, 600);
             prepare2();
         }
         
@@ -68,13 +64,22 @@ public class Farm extends World
     
     public void act()
     {
-        timer++;
-        if (timer > 140)
+        if (s != null)
+            timer++;
+            
+        if (timer > 200)
         {
             removeObject(s);
             if (t != null)
                 t.pause = false;
         }
+        else if (timer > 100 && t.pause)
+        {
+            removeObject(s);
+            s = new Speech("Otherwise the garbage truck will clean all this up!", "black");
+            addObject(s, 300, 600);
+        } 
+
     }
 
     /**

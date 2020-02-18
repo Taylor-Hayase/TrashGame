@@ -12,7 +12,7 @@ public class Controls extends Objects
     public Controls()
     {
         GreenfootImage img = getImage();
-        img.scale(500, 480);
+        img.scale(400, 220);
     }
     /**
      * Act - do whatever the Controls wants to do. This method is called whenever
