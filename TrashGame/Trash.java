@@ -52,9 +52,7 @@ public class Trash extends Animated
         {
             GreenfootImage t = new GreenfootImage("Trash_talking"+i+".png");
             t.scale(65, 65);
-            talking[i] = t;
-            
-            
+            talking[i] = t; 
         }
         
         for (int i = 0; i < 8; i++)
